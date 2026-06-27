@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Project D</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background:black;
+    color:#00b4ff;
+    font-family:monospace;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+}
+
+#box{
+    max-width:600px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 20px;
+    font-size:16px;
+    border:none;
+    background:#ffd000;
+    color:black;
+    cursor:pointer;
+    display:none;
+}
+
+.glitch{
+    animation:glitch 1s infinite;
+}
+
+@keyframes glitch{
+    0%{opacity:1;}
+    50%{opacity:0.6; transform:translateX(2px);}
+    100%{opacity:1;}
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- 🎵 MÚSICA -->
+<audio autoplay loop>
+    <source src="musica.mp3" type="audio/mp3">
+</audio>
+
+<div id="box">
+
+<h2 id="texto">Conectando ao sistema...</h2>
+
+<button id="botao" onclick="entrar()">ACESSAR SISTEMA</button>
+
+</div>
+
+<script>
+
+let frases=[
+"Conectando ao sistema...",
+"Acessando memória...",
+"Bypass de segurança...",
+"Identificando usuário...",
+"Projeto D reconhecido.",
+"Acesso liberado."
+];
+
+let i=0;
+let texto=document.getElementById("texto");
+let botao=document.getElementById("botao");
+
+let intervalo=setInterval(()=>{
+
+texto.innerHTML=frases[i];
+i++;
+
+if(i>=frases.length){
+    clearInterval(intervalo);
+    texto.classList.add("glitch");
+    botao.style.display="inline-block";
+}
+
+},1800);
+
+function entrar(){
+    window.location.href="https://app.notion.com/p/6-38cc5fba454580758bb9e3d40f88690f?source=copy_link";
+}
+
+</script>
+
+</body>
+</html>
